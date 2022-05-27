@@ -1,0 +1,32 @@
+{
+  "package": {
+    "name": "rust_practice", 
+    "version": "0.1.0", 
+    "edition": "2021"
+  },
+ "dependencies": {
+   "first": "this"
+  },
+ "author": {
+   "name": "Roger",
+    "age": 21,
+    "friends": ["skye", "pops"],
+    "courses": [
+      {
+        "name": "Intro to CS50",
+        "date": "10/21/19",
+        "institution": "Harvard"
+      },
+      {
+        "name": "Intro to Javascript",   
+        "date": "10/21/19",
+        "institution": "Codecademy"
+      },
+      {
+        "name": "Python Core",
+        "date": "03/11/22",
+        "institution": "JetBrains Academy"
+      }
+    ]
+  }
+}
