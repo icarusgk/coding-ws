@@ -37,6 +37,11 @@ func (list *List) insertLast(box Box) {
 	}
 }
 
+func (list *List) insertFirst(box Box) {
+	box.next = list.head
+	list.head = &box
+}
+
 func main() {
 	list := List{}
 	// list.head = &Box{data: 238912, next: &Box{data: 482, next: &Box{data: 812, next: &Box{data: 4823}}}}
@@ -47,6 +52,9 @@ func main() {
 	list.insertLast(newBox(3))
 	list.insertLast(newBox(4))
 	list.insertLast(newBox(5))
+	list.insertFirst(newBox(7))
+	list.insertFirst(newBox(10))
+	list.insertLast(newBox(11))
 
 	fmt.Println()
 	list.print()
