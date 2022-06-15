@@ -22,6 +22,7 @@ func (list *List) insertLast(box Box) {
 	// If head is empty put the head box in there
 	if pointer == nil {
 		list.head = &box
+		list.length = 1
 	} else {
 		// Search for the nil pointer
 		for {
@@ -29,6 +30,7 @@ func (list *List) insertLast(box Box) {
 			if pointer.next == nil {
 				// When a nil is found assing the box value to that position
 				pointer.next, list.tail = &box, &box
+				list.length++
 				break
 			} else {
 				// If not, move the pointer
@@ -39,8 +41,10 @@ func (list *List) insertLast(box Box) {
 }
 
 func (list *List) insertFirst(box Box) {
+	// Add testing for first element
 	box.next = list.head
 	list.head = &box
+	list.length++
 }
 
 func (list *List) popPosition(index int) {
@@ -63,6 +67,7 @@ func main() {
 
 	fmt.Println()
 	list.print()
+	fmt.Printf("The lenght of the list is: %v\n", list.length)
 }
 
 // Creates a box
