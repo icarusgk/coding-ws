@@ -12,8 +12,9 @@ type Box struct {
 }
 
 type List struct {
-	head *Box
-	tail *Box
+	head   *Box
+	tail   *Box
+	length int
 }
 
 func (list *List) insertLast(box Box) {
