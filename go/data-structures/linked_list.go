@@ -42,6 +42,10 @@ func (list *List) insertFirst(box Box) {
 	list.head = &box
 }
 
+func (list *List) popPosition(index int) {
+
+}
+
 func main() {
 	list := List{}
 	// list.head = &Box{data: 238912, next: &Box{data: 482, next: &Box{data: 812, next: &Box{data: 4823}}}}
