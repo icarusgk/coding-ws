@@ -48,7 +48,28 @@ func (list *List) insertFirst(box Box) {
 }
 
 func (list *List) popPosition(index int) {
+	if index == 0 {
+		if list.head != nil {
+			color.Red("Popping box at index: %v with value: %v\n", index, list.head.data)
+			list.head = list.head.next
+			list.length--
+		} else {
+			fmt.Println("Can't empty a one box list")
+		}
+	} else if index < list.length {
+		pointer := list.head
 
+		for i := 0; i < index-1; i++ {
+			pointer = pointer.next
+		}
+		// pointer is one box behind the one we want to pop
+		tmpPointer := pointer.next
+		color.Red("Popping box at index: %v with value: %v\n", index, tmpPointer.data)
+		pointer.next = tmpPointer.next
+		list.length--
+	} else {
+		fmt.Println("The list doesn't have that much items")
+	}
 }
 
 func main() {
@@ -64,7 +85,9 @@ func main() {
 	list.insertFirst(newBox(7))
 	list.insertFirst(newBox(10))
 	list.insertLast(newBox(11))
-
+	list.print()
+	list.popPosition(0)
+	list.popPosition(2)
 	fmt.Println()
 	list.print()
 	fmt.Printf("The lenght of the list is: %v\n", list.length)
