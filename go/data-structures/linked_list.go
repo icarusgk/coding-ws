@@ -41,7 +41,6 @@ func (list *List) insertLast(box Box) {
 }
 
 func (list *List) insertFirst(box Box) {
-	// Add testing for first element
 	if list.head == nil {
 		list.head = &box
 		list.length = 1
