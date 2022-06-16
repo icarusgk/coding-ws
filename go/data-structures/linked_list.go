@@ -42,9 +42,14 @@ func (list *List) insertLast(box Box) {
 
 func (list *List) insertFirst(box Box) {
 	// Add testing for first element
-	box.next = list.head
-	list.head = &box
-	list.length++
+	if list.head == nil {
+		list.head = &box
+		list.length = 1
+	} else {
+		box.next = list.head
+		list.head = &box
+		list.length++
+	}
 }
 
 func (list *List) popPosition(index int) {
@@ -118,5 +123,5 @@ func (list List) print() {
 			break
 		}
 	}
-	fmt.Printf("The head is: %v | The tail is: %v\n", *&list.head.data, *&list.tail.data)
+	// fmt.Printf("The head is: %v | The tail is: %v\n", *&list.head.data, *&list.tail.data)
 }
