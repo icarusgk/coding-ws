@@ -94,7 +94,7 @@ func main() {
 	list.popPosition(2)
 	fmt.Println()
 	list.print()
-	fmt.Printf("The lenght of the list is: %v\n", list.length)
+	fmt.Printf("The length of the list is: %v\n", list.length)
 }
 
 // Creates a box
