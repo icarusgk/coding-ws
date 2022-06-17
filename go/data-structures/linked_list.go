@@ -45,6 +45,9 @@ func (list *List) insertFirst(box Box) {
 		list.head = &box
 		list.length = 1
 	} else {
+		if list.length < 2 {
+			list.tail = list.head
+		}
 		box.next = list.head
 		list.head = &box
 		list.length++
@@ -65,6 +68,10 @@ func (list *List) popPosition(index int) {
 
 		for i := 0; i < index-1; i++ {
 			pointer = pointer.next
+		}
+
+		if index == list.length-1 {
+			list.tail = pointer
 		}
 		// pointer is one box behind the one we want to pop
 		tmpPointer := pointer.next
@@ -94,7 +101,6 @@ func main() {
 	list.popPosition(2)
 	fmt.Println()
 	list.print()
-	fmt.Printf("The length of the list is: %v\n", list.length)
 }
 
 // Creates a box
@@ -111,10 +117,11 @@ func newBox(data interface{}) Box {
 // Prints list from start to end
 func (list List) print() {
 	pointer := list.head
+	blueF := color.New(color.FgCyan).PrintfFunc()
+	yellowF := color.New(color.FgYellow).Add(color.Underline).PrintfFunc()
 
 	for {
-		colored := color.New(color.FgCyan).PrintfFunc()
-		colored("%v -> ", pointer.data)
+		blueF("%v -> ", pointer.data)
 		if pointer.next != nil {
 			pointer = pointer.next
 		} else {
@@ -122,5 +129,15 @@ func (list List) print() {
 			break
 		}
 	}
-	// fmt.Printf("The head is: %v | The tail is: %v\n", *&list.head.data, *&list.tail.data)
+
+	if list.head != nil {
+		yellowF("The head is: %v | ", *&list.head.data)
+		if list.tail != nil {
+			yellowF("The tail is: %v\n\n", *&list.tail.data)
+		} else {
+			fmt.Printf("There is no tail\n")
+		}
+	} else {
+		fmt.Println("The list is empty")
+	}
 }
