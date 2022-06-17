@@ -89,18 +89,18 @@ func main() {
 	list.insertLast(newBox(1))
 	// pointer := list.head
 	// fmt.Printf("pointer: %v | list.head: %v\n", &pointer.next, &list.head.next)
-	list.insertLast(newBox(2))
-	list.insertLast(newBox(3))
-	list.insertLast(newBox(4))
-	list.insertLast(newBox(5))
-	list.insertFirst(newBox(7))
-	list.insertFirst(newBox(10))
-	list.insertLast(newBox(11))
+	// list.insertLast(newBox(2))
+	// list.insertLast(newBox(3))
+	// list.insertLast(newBox(4))
+	// list.insertLast(newBox(5))
+	// list.insertFirst(newBox(7))
+	// list.insertFirst(newBox(10))
+	// list.insertLast(newBox(11))
 	list.print()
-	list.popPosition(0)
-	list.popPosition(2)
-	fmt.Println()
-	list.print()
+	// list.popPosition(0)
+	// list.popPosition(2)
+	// fmt.Println()
+	// list.print()
 }
 
 // Creates a box
@@ -117,27 +117,31 @@ func newBox(data interface{}) Box {
 // Prints list from start to end
 func (list List) print() {
 	pointer := list.head
-	blueF := color.New(color.FgCyan).PrintfFunc()
-	yellowF := color.New(color.FgYellow).Add(color.Underline).PrintfFunc()
 
-	for {
-		blueF("%v -> ", pointer.data)
-		if pointer.next != nil {
-			pointer = pointer.next
-		} else {
-			color.Red("end")
-			break
+	if list.head == nil {
+		fmt.Println("The list is empty")
+	} else {
+		blueF := color.New(color.FgCyan).PrintfFunc()
+		yellowF := color.New(color.FgYellow).Add(color.Underline).PrintfFunc()
+
+		for {
+			blueF("%v -> ", pointer.data)
+			if pointer.next != nil {
+				pointer = pointer.next
+			} else {
+				color.Red("end")
+				break
+			}
 		}
-	}
 
-	if list.head != nil {
 		yellowF("The head is: %v | ", *&list.head.data)
+
 		if list.tail != nil {
 			yellowF("The tail is: %v\n\n", *&list.tail.data)
 		} else {
 			fmt.Printf("There is no tail\n")
 		}
-	} else {
-		fmt.Println("The list is empty")
+
+		color.HiGreen("The length of the list is: %v\n", list.length)
 	}
 }
