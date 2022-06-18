@@ -85,22 +85,10 @@ func (list *List) popPosition(index int) {
 
 func main() {
 	list := List{}
-	// list.head = &Box{data: 238912, next: &Box{data: 482, next: &Box{data: 812, next: &Box{data: 4823}}}}
 	list.insertLast(newBox(1))
-	// pointer := list.head
-	// fmt.Printf("pointer: %v | list.head: %v\n", &pointer.next, &list.head.next)
-	// list.insertLast(newBox(2))
-	// list.insertLast(newBox(3))
-	// list.insertLast(newBox(4))
-	// list.insertLast(newBox(5))
-	// list.insertFirst(newBox(7))
-	// list.insertFirst(newBox(10))
-	// list.insertLast(newBox(11))
+	list.insertFirst(newBox(2))
+	list.insertLast(newBox(3))
 	list.print()
-	// list.popPosition(0)
-	// list.popPosition(2)
-	// fmt.Println()
-	// list.print()
 }
 
 // Creates a box
