@@ -3,11 +3,12 @@ package main
 import "fmt"
 
 // TODO
-// Push: Add an element to the top of a stack
-// Pop: Remove an element from the top of a stack
-// IsEmpty: Check if the stack is empty
-// IsFull: Check if the stack is full
-// Peek: Get the value of the top element without removing it
+// - Push: Add an element to the top of a stack
+// - Pop: Remove an element from the top of a stack
+// - IsEmpty: Check if the stack is empty
+// - IsFull: Check if the stack is full
+// - Peek: Get the value of the top element without removing it
+// Add color
 
 type Plate struct {
 	data interface{}
