@@ -40,6 +40,10 @@ func (stack *Stack) pop() *Plate {
 	return popped
 }
 
+func (stack *Stack) isEmpty() bool {
+	return stack.top == nil
+}
+
 func main() {
 	// Testing
 	stack := Stack{}
