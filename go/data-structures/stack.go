@@ -27,13 +27,27 @@ func (stack *Stack) push(plate Plate) {
 	}
 }
 
+func (stack *Stack) pop() Plate {
+	var popped *Plate
+	if stack.top == nil {
+		fmt.Println("The stack is empty!")
+	} else {
+		fmt.Printf("Popping first element in stack: %v\n", stack.top)
+		fmt.Printf("Top is now: %v\n", stack.top.next)
+		popped = stack.top
+		stack.top = stack.top.next
+	}
+	return *popped
+}
+
 func main() {
 	// Testing
 	stack := Stack{}
 	stack.push(Plate{data: 3})
 	stack.push(Plate{data: 2})
 	stack.push(Plate{data: 1})
-	fmt.Printf("%v\n", *stack.top)
-	fmt.Printf("%v\n", *stack.top.next)
-	fmt.Printf("%v\n", *stack.top.next.next)
+
+	stack.pop()
+	stack.pop()
+	stack.pop()
 }
