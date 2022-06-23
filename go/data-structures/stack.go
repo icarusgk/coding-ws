@@ -15,15 +15,20 @@ type Plate struct {
 }
 
 type Stack struct {
-	top *Plate
+	top   *Plate
+	total int
 }
+
+const MAX_CAPACITY = 10
 
 func (stack *Stack) push(plate Plate) {
 	if stack.top == nil {
 		stack.top = &plate
+		stack.total = 1
 	} else {
 		plate.next = stack.top
 		stack.top = &plate
+		stack.total++
 	}
 }
 
@@ -36,6 +41,7 @@ func (stack *Stack) pop() *Plate {
 		fmt.Printf("Top is now: %v\n", stack.top.next)
 		popped = stack.top
 		stack.top = stack.top.next
+		stack.total--
 	}
 	return popped
 }
@@ -44,14 +50,27 @@ func (stack *Stack) isEmpty() bool {
 	return stack.top == nil
 }
 
+func (stack *Stack) isFull() bool {
+	return stack.total == MAX_CAPACITY
+}
+
 func main() {
 	// Testing
 	stack := Stack{}
 	stack.push(Plate{data: 3})
 	stack.push(Plate{data: 2})
 	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
+	stack.push(Plate{data: 1})
 
+	fmt.Printf("isFull? %v\n", stack.isFull())
 	stack.pop()
 	stack.pop()
 	stack.pop()
+	fmt.Printf("isFull? %v\n", stack.isFull())
 }
