@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // TODO
 // Push: Add an element to the top of a stack
 // Pop: Remove an element from the top of a stack
@@ -16,6 +18,22 @@ type Stack struct {
 	top *Plate
 }
 
-func main() {
+func (stack *Stack) push(plate Plate) {
+	if stack.top == nil {
+		stack.top = &plate
+	} else {
+		plate.next = stack.top
+		stack.top = &plate
+	}
+}
 
+func main() {
+	// Testing
+	stack := Stack{}
+	stack.push(Plate{data: 3})
+	stack.push(Plate{data: 2})
+	stack.push(Plate{data: 1})
+	fmt.Printf("%v\n", *stack.top)
+	fmt.Printf("%v\n", *stack.top.next)
+	fmt.Printf("%v\n", *stack.top.next.next)
 }
