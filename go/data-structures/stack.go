@@ -24,11 +24,13 @@ const MAX_CAPACITY = 10
 
 func (stack *Stack) push(plate Plate) {
 	if stack.top == nil {
+		fmt.Printf("Adding plate: %v\n", plate.data)
 		stack.top = &plate
 		stack.total = 1
 	} else if stack.isFull() {
 		fmt.Printf("Can't add %v, the stack is full\n", plate.data)
 	} else {
+		fmt.Printf("Adding plate: %v\n", plate.data)
 		plate.next = stack.top
 		stack.top = &plate
 		stack.total++
