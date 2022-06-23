@@ -46,15 +46,15 @@ func (stack *Stack) pop() *Plate {
 	return popped
 }
 
-func (stack *Stack) isEmpty() bool {
+func (stack Stack) isEmpty() bool {
 	return stack.top == nil
 }
 
-func (stack *Stack) isFull() bool {
+func (stack Stack) isFull() bool {
 	return stack.total == MAX_CAPACITY
 }
 
-func (stack *Stack) peek() *Plate {
+func (stack Stack) peek() *Plate {
 	fmt.Printf("The top element is: %v\n", stack.top)
 	return stack.top
 }
