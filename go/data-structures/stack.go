@@ -20,8 +20,10 @@ type Stack struct {
 
 func (stack *Stack) push(plate Plate) {
 	if stack.top == nil {
+		fmt.Printf("Adding plate: %v\n", plate.data)
 		stack.top = &plate
 	} else {
+		fmt.Printf("Adding plate: %v\n", plate.data)
 		plate.next = stack.top
 		stack.top = &plate
 	}
