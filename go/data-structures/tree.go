@@ -16,6 +16,10 @@ func (tree *Tree) print() {
 	fmt.Printf("%+v\n", *tree.root)
 }
 
+func (tree *Tree) traverse() {
+
+}
+
 func main() {
 	tree := Tree{}
 	tree.root = &Box{data: "root"} // Not necessary a string
