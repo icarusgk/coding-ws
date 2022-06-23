@@ -84,3 +84,18 @@ func main() {
 	stack.peek()
 	fmt.Printf("isFull? %v\n", stack.isFull())
 }
+
+func newPlate(data interface{}) Plate {
+	// Returns
+	// ----------------
+	// |			  |
+	// |	 		  |
+	// |	 data	  |
+	// |			  |
+	// |			  |
+	// ----------------
+	//		  |
+	//		  |
+	//		  v	
+	return Plate{data: data}
+}
