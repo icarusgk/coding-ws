@@ -27,7 +27,7 @@ func (stack *Stack) push(plate Plate) {
 	}
 }
 
-func (stack *Stack) pop() Plate {
+func (stack *Stack) pop() *Plate {
 	var popped *Plate
 	if stack.top == nil {
 		fmt.Println("The stack is empty!")
@@ -37,7 +37,7 @@ func (stack *Stack) pop() Plate {
 		popped = stack.top
 		stack.top = stack.top.next
 	}
-	return *popped
+	return popped
 }
 
 func main() {
