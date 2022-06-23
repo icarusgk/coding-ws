@@ -25,6 +25,8 @@ func (stack *Stack) push(plate Plate) {
 	if stack.top == nil {
 		stack.top = &plate
 		stack.total = 1
+	} else if stack.isFull() {
+		fmt.Printf("Can't add %v, the stack is full\n", plate.data)
 	} else {
 		plate.next = stack.top
 		stack.top = &plate
@@ -62,14 +64,15 @@ func (stack Stack) peek() *Plate {
 func main() {
 	// Testing
 	stack := Stack{}
+	stack.push(Plate{data: 10})
+	stack.push(Plate{data: 9})
+	stack.push(Plate{data: 8})
+	stack.push(Plate{data: 7})
+	stack.push(Plate{data: 6})
+	stack.push(Plate{data: 5})
+	stack.push(Plate{data: 4})
 	stack.push(Plate{data: 3})
 	stack.push(Plate{data: 2})
-	stack.push(Plate{data: 1})
-	stack.push(Plate{data: 1})
-	stack.push(Plate{data: 1})
-	stack.push(Plate{data: 1})
-	stack.push(Plate{data: 1})
-	stack.push(Plate{data: 1})
 	stack.push(Plate{data: 1})
 	stack.push(Plate{data: 1})
 
