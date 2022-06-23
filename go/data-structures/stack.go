@@ -54,6 +54,11 @@ func (stack *Stack) isFull() bool {
 	return stack.total == MAX_CAPACITY
 }
 
+func (stack *Stack) peek() *Plate {
+	fmt.Printf("The top element is: %v\n", stack.top)
+	return stack.top
+}
+
 func main() {
 	// Testing
 	stack := Stack{}
@@ -72,5 +77,6 @@ func main() {
 	stack.pop()
 	stack.pop()
 	stack.pop()
+	stack.peek()
 	fmt.Printf("isFull? %v\n", stack.isFull())
 }
