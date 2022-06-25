@@ -12,5 +12,8 @@ type Queue struct {
 }
 
 func main() {
-
+	queue := Queue{}
+	// Add tests
+	queue.first = &Person{name: "Roger"}
+	queue.last = queue.first
 }
