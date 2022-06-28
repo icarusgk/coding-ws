@@ -38,11 +38,29 @@ func (queue *Queue) enqueue(person Person) {
 	}
 }
 
+func (queue Queue) print() {
+  pointer := queue.first
+  if pointer == nil {
+    fmt.Println("The queue is empty")
+  } else {
+    for {
+      fmt.Printf("* %v\n", pointer.name)
+      if pointer.back != nil {
+        pointer = pointer.back
+      } else {
+        break
+      }
+    }
+    fmt.Printf("\nThe queue length is: %v\n", queue.length)
+  }
+}
+
 func main() {
 	queue := Queue{}
 	// Add tests
   queue.enqueue(Person{name: "Roger"})
   queue.enqueue(Person{name: "Gwenz"})
   queue.enqueue(Person{name: "Pops"})
- }
+
+  queue.print()
 }
