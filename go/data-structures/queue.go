@@ -65,6 +65,10 @@ func (queue Queue) print() {
   }
 }
 
+func (queue Queue) peek() Person {
+  return *queue.first
+}
+
 func main() {
 	queue := Queue{}
 	// Add tests
@@ -75,4 +79,5 @@ func main() {
   queue.print()
   queue.dequeue()
   queue.print()
+  fmt.Printf("The first person is: %v\n", queue.peek())
 }
