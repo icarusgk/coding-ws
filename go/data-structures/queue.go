@@ -77,6 +77,10 @@ func (queue Queue) peek() Person {
   return *queue.first
 }
 
+func (queue Queue) isEmpty() bool {
+  return queue.first == nil
+}
+
 func main() {
 	queue := Queue{}
 	// Add tests
