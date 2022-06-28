@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+  "github.com/fatih/color"
+)
 
 type Person struct {
 	name  string
@@ -53,15 +56,20 @@ func (queue Queue) print() {
   if pointer == nil {
     fmt.Println("The queue is empty")
   } else {
+    // Color declarations
+    blueF := color.New(color.FgCyan).PrintfFunc()
+    yellowF := color.New(color.FgYellow).PrintfFunc()
+    greenF := color.New(color.FgGreen).PrintfFunc()
     for {
-      fmt.Printf("* %v\n", pointer.name)
+      yellowF("* ")
+      blueF("%v\n", pointer.name)
       if pointer.back != nil {
         pointer = pointer.back
       } else {
         break
       }
     }
-    fmt.Printf("\nThe queue length is: %v\n", queue.length)
+    greenF("\nThe queue length is: %v\n\n", queue.length)
   }
 }
 
