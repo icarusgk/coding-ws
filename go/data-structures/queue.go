@@ -38,6 +38,16 @@ func (queue *Queue) enqueue(person Person) {
 	}
 }
 
+// Remove an element from the front of the queue
+func (queue *Queue) dequeue() {
+  if queue.first == nil {
+    fmt.Println("The queue is empty")
+  } else {
+    queue.first = queue.first.back
+    queue.length--
+  }
+}
+
 func (queue Queue) print() {
   pointer := queue.first
   if pointer == nil {
@@ -62,5 +72,7 @@ func main() {
   queue.enqueue(Person{name: "Gwenz"})
   queue.enqueue(Person{name: "Pops"})
 
+  queue.print()
+  queue.dequeue()
   queue.print()
 }
