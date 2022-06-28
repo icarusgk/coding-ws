@@ -7,8 +7,15 @@ type Person struct {
 }
 
 type Queue struct {
-	first *Person
-	last  *Person
+	first  *Person
+	last   *Person
+	length int
+}
+
+const MAX_LIMIT = 10;
+
+func (queue Queue) isFull() bool {
+	return queue.length == MAX_LIMIT
 }
 
 func main() {
