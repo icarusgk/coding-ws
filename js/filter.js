@@ -3,15 +3,17 @@
 
 // console.log(good)
 
-const todos = [
+let todos = [
   { id: 1, text: 'Learn HTML' },
   { id: 2, text: 'Learn JavaScript' },
   { id: 3, text: 'Learn Vue' }
 ]
 
 const rest = todo => {
-  todos.filter(t => t.id !== todo.id)
+  // Assign the filtered list back to the original
+  todos = todos.filter(t => t.id !== todo.id)
 }
 
 rest({ id: 2, text: 'Learn JavaScript' });
 console.log(todos)
+
